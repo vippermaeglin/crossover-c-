@@ -1,0 +1,141 @@
+﻿@model WebApplication.Models.CriminalViewModel
+@{
+    ViewBag.Title = "Home";
+}
+
+
+@if (Request.IsAuthenticated)
+{
+    <div class="jumbotron">
+        <h1>NATIONAL CRIMINALS DATABASE</h1>   
+        @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+            @Html.AntiForgeryToken()
+            <h4>Enter with search parameters, blank fields won't be considered.</h4>
+            if (TempData["msg"] != null)
+            {
+                <div class="text-success">@TempData["msg"]</div>
+            }
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Nationality, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Nationality, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @{
+                        List<SelectListItem> listItems = new List<SelectListItem>();
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Male",
+                            Value = "M"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Female",
+                            Value = "F"
+                        });
+                    }
+
+                    @Html.DropDownListFor(m => m.Gender, listItems, "-- Select Gender --")
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MinAge, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.MinAge, new { htmlAttributes = new { @type="number", @min = 0, @max = 150 } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MaxAge, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.MaxAge, new { htmlAttributes = new { @type = "number", @min = 0, @max = 150 } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MinHeight, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.MinHeight, new { htmlAttributes = new { @type = "number", @min = 0, @max = 3, @step = 0.25 } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MaxHeight, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.MaxHeight, new { htmlAttributes = new { @type = "number", @min = 0, @max = 3, @step = 0.25 } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MinWeight, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.MinWeight, new { htmlAttributes = new { @type = "number", @min = 0, @max = 300, @step = 10.0 } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MaxWeight, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.MaxWeight, new { htmlAttributes = new { @type = "number", @min = 0, @max = 300, @step = 10.0 } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MaxResults, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.MinWeight, new { htmlAttributes = new { @type = "number", @min = 0 } })
+                </div>
+            </div>
+            <div>*Please inform your email to receive the search result and profiles:</div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @Value = User.Identity.Name })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Submit" />
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="jumbotron">
+        <h1>NATIONAL CRIMINALS DATABASE</h1>
+        <p class="lead">Welcome to national criminals database, a test application developed to Crossover technical trial. Please, log in using your email to search for criminal profiles.</p>
+    </div>
+}
+<div class="row">
+    <div class="col-md-4">
+        <h2>Architecture</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">See more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Crossover</h2>
+        <p>
+        Crossover not only connects companies to the best, high-skill talent around the world, 
+        but also helps them manage, pay, and increase the productivity of that talent. 
+        </p>
+        <p><a class="btn btn-default" href="https://www.crossover.com/">See more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Vinicius Arruda</h2>
+        <p>
+            Computer Engineer post-graduated in Software Project Management and C# developer with 6+ years’ experience in software development, design and DevOp.</p>
+        <p><a class="btn btn-default" href="https://br.linkedin.com/in/vinicius-arruda-80858a4a">See more &raquo;</a></p>
+    </div>
+</div>

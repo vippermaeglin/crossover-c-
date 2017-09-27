@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="criminals" Class="ProfilesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=VINICIUS-DELL\SQLEXPRESS;Initial Catalog=criminals;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="criminalsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Profiles" Member="Profiles">
+    <Type Name="Profile">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Char" DbType="NChar(1)" CanBeNull="true" />
+      <Column Name="Height" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="Nationality" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Association Name="Profile_Charge" Member="Charges" ThisKey="id" OtherKey="IdProfile" Type="Charge" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Charges" Member="Charges">
+    <Type Name="Charge">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProfile" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="IdCrime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Profile_Charge" Member="Profile" ThisKey="IdProfile" OtherKey="id" Type="Profile" IsForeignKey="true" />
+      <Association Name="Crime_Charge" Member="Crime" ThisKey="IdCrime" OtherKey="id" Type="Crime" IsForeignKey="true" />
+      <Association Name="Status_Charge" Member="Status" ThisKey="IdStatus" OtherKey="id" Type="Status" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Crimes" Member="Crimes">
+    <Type Name="Crime">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sentence" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Crime_Charge" Member="Charges" ThisKey="id" OtherKey="IdCrime" Type="Charge" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Status" Member="Status">
+    <Type Name="Status">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Status_Charge" Member="Charges" ThisKey="id" OtherKey="IdStatus" Type="Charge" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\wwwroot\CrossOver\WcfService</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>12/07/2015 10:57:02</publishTime>
+    </File>
+    <File Include="bin/itextsharp.dll">
+      <publishTime>12/07/2015 15:41:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>12/07/2015 10:56:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.Extensibility.DependencyCollector.dll">
+      <publishTime>12/07/2015 10:56:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.dll">
+      <publishTime>12/07/2015 10:56:43</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.Extensibility.Web.dll">
+      <publishTime>12/07/2015 10:56:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll">
+      <publishTime>12/07/2015 10:56:41</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.Extensions.Intercept_x86.dll">
+      <publishTime>12/07/2015 10:56:41</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.Web.TelemetryChannel.dll">
+      <publishTime>12/07/2015 10:56:43</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll">
+      <publishTime>12/07/2015 10:56:41</publishTime>
+    </File>
+    <File Include="bin/PDF/wanted.pdf">
+      <publishTime>12/07/2015 20:26:44</publishTime>
+    </File>
+    <File Include="bin/WcfService.dll">
+      <publishTime>12/08/2015 18:11:08</publishTime>
+    </File>
+    <File Include="CriminalService.svc">
+      <publishTime>12/07/2015 10:59:12</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>12/07/2015 15:41:09</publishTime>
+    </File>
+    <File Include="Persistence/Profile.dbml">
+      <publishTime>12/07/2015 12:29:03</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>12/08/2015 18:11:09</publishTime>
+    </File>
+    <File Include="Service References/Application Insights/ConnectedService.json">
+      <publishTime>12/07/2015 10:57:04</publishTime>
+    </File>
+    <File Include="Service/CriminalService.svc">
+      <publishTime>12/07/2015 10:59:12</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/08/2015 18:05:45</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

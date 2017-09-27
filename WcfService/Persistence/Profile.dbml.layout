@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.75" name="Profiles">
+  <DataContextMoniker Name="/ProfilesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e0bf3b6f-0ac6-4fb9-bf89-97f29488463c" absoluteBounds="3, 1.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/ProfilesDataContext/Profile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6f6c3052-fd1c-4e6a-b156-9d6f7b0d426b" absoluteBounds="3.015, 1.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="02671f34-24d6-43f0-a58d-6a88b37dbbd3" absoluteBounds="6.5, 2.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/ProfilesDataContext/Charge" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b49e3c7-1ef6-4d91-a985-ed14f68bb624" absoluteBounds="6.515, 3.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2f69236-8ee2-455f-9301-0238a3c39e6f" absoluteBounds="3.75, 8.125, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/ProfilesDataContext/Crime" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c13ab085-9902-4846-aece-a79ba075f8e6" absoluteBounds="3.765, 8.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fca91457-abfc-4b22-bbe2-c3fbaa289023" absoluteBounds="1.125, 5.125, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/ProfilesDataContext/Status" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3bb77661-5870-41e4-8716-496d41058468" absoluteBounds="1.1400000000000001, 5.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5 : 3.29890055338542); (6.5 : 3.29890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ProfilesDataContext/Profile/Profile_Charge" />
+      <nodes>
+        <classShapeMoniker Id="e0bf3b6f-0ac6-4fb9-bf89-97f29488463c" />
+        <classShapeMoniker Id="02671f34-24d6-43f0-a58d-6a88b37dbbd3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.40625 : 8.125); (5.40625 : 4.21559895833333); (6.5 : 4.21559895833333)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ProfilesDataContext/Crime/Crime_Charge" />
+      <nodes>
+        <classShapeMoniker Id="a2f69236-8ee2-455f-9301-0238a3c39e6f" />
+        <classShapeMoniker Id="02671f34-24d6-43f0-a58d-6a88b37dbbd3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.125 : 5.72199625651042); (5.32291666666667 : 5.72199625651042 : JumpStart); (5.48958333333333 : 5.72199625651042 : JumpEnd); (7.5 : 5.72199625651042); (7.5 : 4.64589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ProfilesDataContext/Status/Status_Charge" />
+      <nodes>
+        <classShapeMoniker Id="fca91457-abfc-4b22-bbe2-c3fbaa289023" />
+        <classShapeMoniker Id="02671f34-24d6-43f0-a58d-6a88b37dbbd3" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
